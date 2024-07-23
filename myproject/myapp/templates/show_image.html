@@ -6,6 +6,17 @@
 <body>
     <h1>Uploaded Image</h1>
     <img src="{{ uploaded_image.image.url }}" alt="Uploaded Image" style="max-width: 600px;">
-    <p>{{ uploaded_image.description }}</p>
+    <p><strong>Description:</strong> {{ uploaded_image.description }}</p>
+    
+    <h2>Similar Descriptions:</h2>
+    <ul>
+        {% for id, description, distance in similar_descriptions %}
+            <li>
+                <strong>Image ID:</strong> {{ id }}<br>
+                <strong>Description:</strong> {{ description }}<br>
+                <strong>Distance:</strong> {{ distance }}
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
